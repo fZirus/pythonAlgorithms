@@ -23,13 +23,20 @@ def subtractMatrixes(mat1,mat2):
 def multiplyMatrixes(mat1,mat2):
     return [[ mat1[x][y] * mat2[x][y] for y in range(len(mat1[x]))] for x in range(len(mat1))]
 
+def _devideIfNotZero(numOne,numTwo):
+    if numOne != 0 and numTwo != 0:
+        return numOne/numTwo
+    else:
+        return "NAN"
+
 def devideMatrixes(mat1,mat2):
-    return [[ mat1[x][y] / mat2[x][y] for y in range(len(mat1[x]))] for x in range(len(mat1))]
+    return [[ [_devideIfNotZero(mat1[x][y], mat2[x][y])] for y in range(len(mat1[x]))] for x in range(len(mat1))]
+
 
 
 if __name__ == "__main__":  
     if(mat1 == [[]] or mat2 == [[]]): 
-        mat1 = buildDefaultMatrix(matrixX,matrixY)
+        mat1 = buildDefaultMatrix(defaultMatrixX,defaultMatrixY)
         mat2 = mat1
         
     print("mat1:")
